@@ -21,14 +21,14 @@ export default function MathGamePage() {
   const [pulseEffect, setPulseEffect] = useState(false);
   const [gameMode, setGameMode] = useState('classic');
 
-  const levelConfig = {
-    1: { name: 'Starter', range: [1, 10], color: 'bg-green-400' },
-    2: { name: 'Warmed Up', range: [1, 25], color: 'bg-blue-400' },
-    3: { name: 'Getting Hot', range: [1, 50], color: 'bg-purple-400' },
-    4: { name: 'On Fire', range: [1, 100], color: 'bg-orange-400' },
-    5: { name: 'Math Demon', range: [1, 1000], color: 'bg-red-400' },
-    6: { name: 'Calculation God', range: [1, 10000], color: 'bg-pink-400' }
-  };
+  // const levelConfig = {
+  //   1: { name: 'Starter', range: [1, 10], color: 'bg-green-400' },
+  //   2: { name: 'Warmed Up', range: [1, 25], color: 'bg-blue-400' },
+  //   3: { name: 'Getting Hot', range: [1, 50], color: 'bg-purple-400' },
+  //   4: { name: 'On Fire', range: [1, 100], color: 'bg-orange-400' },
+  //   5: { name: 'Math Demon', range: [1, 1000], color: 'bg-red-400' },
+  //   6: { name: 'Calculation God', range: [1, 10000], color: 'bg-pink-400' }
+  // };
 
   const gameModes = {
     classic: { name: 'Classic', icon: Brain, desc: 'Standard gameplay' },
@@ -44,9 +44,18 @@ export default function MathGamePage() {
     focused: 'text-purple-500',
     confused: 'text-orange-500'
   };
+const levelConfig: Record<number, { name: string; range: number[]; color: string }> = {
+  1: { name: 'Starter', range: [1, 10], color: 'bg-green-400' },
+  2: { name: 'Warmed Up', range: [1, 25], color: 'bg-blue-400' },
+  3: { name: 'Getting Hot', range: [1, 50], color: 'bg-purple-400' },
+  4: { name: 'On Fire', range: [1, 100], color: 'bg-orange-400' },
+  5: { name: 'Math Demon', range: [1, 1000], color: 'bg-red-400' },
+  6: { name: 'Calculation God', range: [1, 10000], color: 'bg-pink-400' }
+};
 
   // Wild question generators
   const generateQuestion = () => {
+    // const config = levelConfig[level.toString()];
     const config = levelConfig[level];
     const [min, max] = config.range;
     
