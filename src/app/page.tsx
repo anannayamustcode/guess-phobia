@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Lightbulb, Zap, Heart, Target, Rocket, Brain, Timer, TrendingUp, Circle, Square, Triangle } from 'lucide-react';
+import { Lightbulb, Zap, Target, Brain, Circle, Square, Triangle } from 'lucide-react';
 
 interface Question {
   question: string;
@@ -25,7 +25,7 @@ interface LevelConfig {
 
 interface GameMode {
   name: string;
-  icon: React.ComponentType<any>;
+  icon: React.ComponentType<{ size?: number; className?: string }>;
   desc: string;
 }
 
@@ -187,7 +187,7 @@ export default function MathGamePage() {
       () => {
         const start = Math.floor(Math.random() * 10) + 1;
         const step = [3, 4, 5, 7][Math.floor(Math.random() * 4)];
-        const position = 4;
+        // const position = 4;
         return {
           question: `Sequence: ${start}, ${start + step}, ${start + 2*step}, ?, ${start + 4*step}. Missing number?`,
           answer: start + 3*step,
